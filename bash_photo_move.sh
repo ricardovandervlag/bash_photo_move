@@ -9,3 +9,9 @@ echo
 echo This program is made to move content from a phone to a specified directory.
 echo Please enter the prefferd destination and press '[ENTER]'
 
+dir="$(pwd)"
+file="/dest.txt"
+input="$dir$file"
+dest="$(cat $input)"
+
+echo "$dest"
