@@ -12,6 +12,8 @@ echo Please enter the prefferd destination and press '[ENTER]'
 dir="$(pwd)"
 file="/dest.txt"
 input="$dir$file"
-dest="$(cat $input)"
+dest="$(cat $input)" || echo "File not found!"
 
-echo "$dest"
+if [ ! -f "$dest" ]; then
+	echo "File not found"
+fi
