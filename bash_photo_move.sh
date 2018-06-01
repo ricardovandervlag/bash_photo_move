@@ -1,3 +1,4 @@
+#!/bin/bash
 clear
 echo '#################################'
 echo '# Author:  Ricardo van der Vlag #'
@@ -7,24 +8,20 @@ echo '# Type:    Private repository   #'
 echo '#################################'
 echo
 echo This program is made to move content from a phone to a specified directory.
+echo
 
-# Taking user input for source path
-echo "Please enter a source path and press [ENTER]"
-read source
+source=$1
+destination=$2
+curDir=$(pwd)
+fail="False"
+
 # Checking source path
 if [ ! -d $source ]; then
-	echo "Incorrect path"; exit 1;
-else
-	echo "Source path: $source";
+        echo "Incorrect source path"; fail="True";
 fi
 
-# Taking user input for destination path
-echo "Please enter a destination path and press [ENTER]"
-read destination
 # Checking destination path
 if [ ! -d $destination ]; then
-        echo "Incorrect path"; exit 1;
-else
-        echo "Destination path: $source";
+        echo "Incorrect destination path"; fail="True";
 fi
 
