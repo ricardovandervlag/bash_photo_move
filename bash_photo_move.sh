@@ -13,15 +13,15 @@ echo
 source=$1
 destination=$2
 curDir=$(pwd)
-fail="False"
+fail=""
 
 # Checking source path
-if [ ! -d $source ]; then
-        echo "Incorrect source path"; fail="True";
+if [ ! -d $source ] || [ -z $source ]; then
+	echo "Incorrect source path"; fail="True";
 fi
 
 # Checking destination path
-if [ ! -d $destination ]; then
-        echo "Incorrect destination path"; fail="True";
+if [ ! -d $destination ] || [ -z $destination ]; then;
+	echo "Incorrect destination path"; fail="True";
 fi
 
