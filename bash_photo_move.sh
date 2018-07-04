@@ -39,7 +39,7 @@ else
 fi
 
 # Aborting if fail
-if [ fail = "True" ]; then
+if [ $fail = "True" ]; then
 	echo "Program failed! Please enter propper parameters."; exit 1;
 fi
 
