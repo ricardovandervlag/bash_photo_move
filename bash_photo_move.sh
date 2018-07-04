@@ -33,6 +33,7 @@ fi
 
 # Checking timeStmpType
 if [ ! "$timeStmpType" = "week" ] || [ ! "$timeStmpType" = "month" ]; then
+	echo $timeStmpType;
 	echo "You must either enter 'month' or 'week' as thrid parameter."; fail="True";
 fi
 
