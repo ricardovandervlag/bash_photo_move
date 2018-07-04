@@ -27,7 +27,7 @@ if [ ! -d $source ] || [ -z $source ]; then
 fi
 
 # Checking destination path
-if [ ! -d $destination ] || [ -z $destination ]; then;
+if [ ! -d $destination ] || [ -z $destination ]; then
 	echo "Incorrect destination path."; fail="True";
 fi
 
