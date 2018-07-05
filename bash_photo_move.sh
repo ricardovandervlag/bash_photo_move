@@ -33,7 +33,7 @@ fi
 
 # Checking timeStmpType
 if [ "$timeStmpType" = "week" ] || [ "$timeStmpType" = "month" ]; then
-	echo $timeStmpType;
+	echo "Order by: $timeStmpType";
 else
 	echo "You must either enter 'month' or 'week' as thrid parameter."; fail="True";
 fi
@@ -51,7 +51,7 @@ contentList=$(ls -lq *)
 echo $contentList
 
 while read line; do
-	array[ $i ]="$line";
+	array[ $i ]="$source$line";
 	(( i++ ));
 done < <(ls -lq *)
 
