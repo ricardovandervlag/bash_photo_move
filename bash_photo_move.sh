@@ -45,13 +45,12 @@ fi
 
 # Count number of files
 contentCount=$(ls -lq "$source"* | wc -l)
+echo $contentCount
 
 # List content
-contentList=$(ls -lq "$source"*)
-
 while read line; do
 	array[ $i ]="$line";
 	(( i++ ));
 done < <(ls -lq "$source"*)
 
-echo ${array[*]}
+#echo ${array[*]}
