@@ -2,7 +2,7 @@
 clear
 echo '#################################'
 echo '# Author:  Ricardo van der Vlag #'
-echo '# Version: 2018-05-22           #'
+echo '# Version: 2018-07-04           #'
 echo '# GitHub:  ricardovandervlag    #'
 echo '# Type:    Private repository   #'
 echo '#################################'
@@ -43,4 +43,9 @@ if [ "$fail" = "True" ]; then
 	echo "Program failed! Please enter propper parameters."; exit 1;
 fi
 
-echo "Parameters accepted!"
+# Count number of files
+contentCount=$(ls -lq * | wc -l)
+# List content
+contentList=$(ls -lq *)
+
+for ((i=$contentCount; ))
