@@ -44,10 +44,10 @@ if [ "$fail" = "True" ]; then
 fi
 
 # Count number of files
-contentCount=$(ls -lq * | wc -l)
+contentCount=$(ls -lq "$source"* | wc -l)
 
 # List content
-contentList=$(ls -lq *)
+contentList=$(ls -lq "$source"*)
 echo $contentList
 
 while read line; do
