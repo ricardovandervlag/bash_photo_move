@@ -56,3 +56,8 @@ while read line; do
 done < <(ls -lq "$source"*)
 
 echo ${array}
+clear
+
+array1=($(ls -lq "$source"))
+
+echo $array1
