@@ -50,14 +50,3 @@ contentCount=$(ls -lq "$source"* | wc -l)
 contentList=$(ls -lq "$source"*)
 echo $contentList
 
-while read line; do
-	array[ $i ]="$line";
-	(( i++ ));
-done < <(ls -lq "$source"*)
-
-echo ${array}
-clear
-
-array1=($(ls -lq "$source"))
-
-echo $array1
