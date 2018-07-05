@@ -55,4 +55,4 @@ while read line; do
 	(( i++ ));
 done < <(ls -lq "$source"*)
 
-echo ${array[]}
+echo ${array[5]}
