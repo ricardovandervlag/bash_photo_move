@@ -42,15 +42,3 @@ fi
 if [ "$fail" = "True" ]; then
 	echo "Program failed! Please enter propper parameters."; exit 1;
 fi
-
-# Count number of files
-contentCount=$(ls -lq * | wc -l)
-# List content
-contentList=$(ls -lq *)
-
-while read line; do
-	array[ $i ]="$line";
-	(( i++ ));
-done < <(ls -lq *)
-
-echo ${array[1]}
