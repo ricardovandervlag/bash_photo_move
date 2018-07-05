@@ -51,8 +51,8 @@ contentList=$(ls -lq *)
 echo $contentList
 
 while read line; do
-	array[ $i ]="$source$line";
+	array[ $i ]="$line";
 	(( i++ ));
-done < <(ls -lq *)
+done < <(ls -lq "$source"*)
 
 echo ${array[1]}
