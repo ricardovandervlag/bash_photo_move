@@ -44,13 +44,13 @@ if [ "$fail" = "True" ]; then
 fi
 
 # Count number of files
-contentCount=$(ls -lq "$source"* | wc -l)
+contentCount=$(ls "$source"* | wc -l)
 
 # List content
 while read line; do
 	array[ $i ]="$line";
 	(( i++ ));
-done < <(ls -lq "$source"*)
+done < <(ls "$source"*)
 
 # Copy files
 for (( i=0; $i<($contentCount - 1); i++)); do
