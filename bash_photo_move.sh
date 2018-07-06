@@ -45,7 +45,6 @@ fi
 
 # Count number of files
 contentCount=$(ls -lq "$source"* | wc -l)
-echo $contentCount
 
 # List content
 while read line; do
@@ -53,4 +52,7 @@ while read line; do
 	(( i++ ));
 done < <(ls -lq "$source"*)
 
-#echo ${array[*]}
+# Copy files
+for (( i=0; $i<($contentCount - 1); i++)); do
+	cp "$source$array[$i] $destination$array[$i]";
+done
