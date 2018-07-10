@@ -54,5 +54,5 @@ done < <(ls "$source")
 
 # Copy files
 for (( i=0; $i<($contentCount - 1); i++)); do
-	echo $source${array[$i]} $destination${array[$i]};
+	cp $source${array[$i]} $destination${array[$i]};
 done
