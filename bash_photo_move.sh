@@ -50,7 +50,7 @@ contentCount=$(ls "$source"* | wc -l)
 while read line; do
 	array[ $i ]="$line";
 	(( i++ ));
-done < <(ls "$source"*)
+done < <(ls "$source")
 
 # Copy files
 for (( i=0; $i<($contentCount - 1); i++)); do
