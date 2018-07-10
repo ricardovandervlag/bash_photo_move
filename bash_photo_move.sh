@@ -56,3 +56,10 @@ done < <(ls "$source")
 for (( i=0; $i<($contentCount - 1); i++)); do
 	cp $source${array[$i]} $destination${array[$i]};
 done
+
+# Check hash md5
+for (( i=0; $i<($contentCount - 1); i++)); do
+	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
+	hashDestination=$(md5sum $destination${array[$i]} | cut -d\  -f1);
+	echo $hashSource $hashDestination
+done
