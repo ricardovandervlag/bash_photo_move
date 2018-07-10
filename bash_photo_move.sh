@@ -58,8 +58,7 @@ function ext{
 	if [ "$timeStmpType" = "month" ]; then
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
 		ext="$ext/";
-	fi
-}
+	fi}
 
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
