@@ -63,6 +63,6 @@ for (( i=0; $i<($contentCount - 1); i++)); do
 	hashDestination=$(md5sum $destination${array[$i]} | cut -d\  -f1);
 	echo $hashSource $hashDestination
 	if [ $hashSource == $hashDestination ]; then
-		echo True;
+		rm $source${array[$i]};
 	fi;
 done
