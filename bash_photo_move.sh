@@ -58,6 +58,9 @@ for (( i=0; $i<($contentCount); i++)); do
 	if [ "$timeStmpType" = "month" ]; then
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
 		ext="$ext/";
+	else
+		ext=$(date +%V)
+		ext="$ext/"
 	fi;
 	# Make dir if not exist
 	if [ ! -d $destination$ext ] || [ -z $destination$ext ]; then
