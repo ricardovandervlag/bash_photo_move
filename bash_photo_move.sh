@@ -53,13 +53,12 @@ while read line; do
 done < <(ls "$source")
 
 # Copy files
-echo $contentCount
-for (( i=0; $i<($contentCount - 1); i++)); do
+for (( i=0; $i<($contentCount); i++)); do
 	cp $source${array[$i]} $destination${array[$i]};
 done
 
 # Check hash md5
-for (( i=0; $i<($contentCount - 1); i++)); do
+for (( i=0; $i<($contentCount); i++)); do
 	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
 	hashDestination=$(md5sum $destination${array[$i]} | cut -d\  -f1);
 	echo $hashSource $hashDestination
