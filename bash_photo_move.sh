@@ -54,22 +54,23 @@ done < <(ls "$source")
 
 # Extension
 ext=""
-function ext{
-	if [ "$timeStmpType" = "month" ]; then
-		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
-		ext="$ext/";
-	fi}
 
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
-	ext;
+	if [ "$timeStmpType" = "month" ]; then
+		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
+		ext="$ext/";
+	fi;
 	cp $source${array[$i]} $destination$ext${array[$i]};
 done
 
 # Check hash md5
 for (( i=0; $i<($contentCount); i++)); do
 	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
-	ext;
+	if [ "$timeStmpType" = "month" ]; then
+		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
+		ext="$ext/";
+	fi;
 	hashDestination=$(md5sum $destination$ext${array[$i]} | cut -d\  -f1);
 	# Remove source if hash OK
 	if [ $hashSource == $hashDestination ]; then
