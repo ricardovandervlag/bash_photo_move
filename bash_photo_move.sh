@@ -52,21 +52,24 @@ while read line; do
 	(( i++ ));
 done < <(ls "$source")
 
-# Extension
-ext=""
-
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
+	# Extension to directory
 	if [ "$timeStmpType" = "month" ]; then
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
 		ext="$ext/";
 	fi;
+	# Make dir if not exist
+	if [ ! -d $destination$ext ] || [ -z $destination$ext ]; then
+		mkdir $destination$ext;
+	fi
 	cp $source${array[$i]} $destination$ext${array[$i]};
 done
 
 # Check hash md5
 for (( i=0; $i<($contentCount); i++)); do
 	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
+	# Extension to directory
 	if [ "$timeStmpType" = "month" ]; then
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
 		ext="$ext/";
