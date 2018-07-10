@@ -52,15 +52,25 @@ while read line; do
 	(( i++ ));
 done < <(ls "$source")
 
+# Extension
+function ext {
+if [ "$timeStmpType" = "month" ]; then
+	ext=$(ls -l $source${array[$i]} | awk '{print $6}');
+else
+	ext="";
+fi}
+
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
-	cp $source${array[$i]} $destination${array[$i]};
+	ext;
+	cp $source${array[$i]} $destination$ext${array[$i]};
 done
 
 # Check hash md5
 for (( i=0; $i<($contentCount); i++)); do
 	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
-	hashDestination=$(md5sum $destination${array[$i]} | cut -d\  -f1);
+	iext;
+	hashDestination=$(md5sum $destination$ext${array[$i]} | cut -d\  -f1);
 	# Remove source if hash OK
 	if [ $hashSource == $hashDestination ]; then
 		echo;
