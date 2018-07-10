@@ -61,6 +61,7 @@ done
 for (( i=0; $i<($contentCount); i++)); do
 	hashSource=$(md5sum $source${array[$i]} | cut -d\  -f1);
 	hashDestination=$(md5sum $destination${array[$i]} | cut -d\  -f1);
+	# Remove source if hash OK
 	if [ $hashSource == $hashDestination ]; then
 		echo;
 		echo "Copied ${array[$i]} succesfully. Removing source file.";
