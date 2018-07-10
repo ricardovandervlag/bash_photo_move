@@ -59,8 +59,8 @@ for (( i=0; $i<($contentCount); i++)); do
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
 		ext="$ext/";
 	else
-		ext=$(date +%V)
-		ext="$ext/"
+		ext=$(date +%V);
+		ext="$ext/";
 	fi;
 	# Make dir if not exist
 	if [ ! -d $destination$ext ] || [ -z $destination$ext ]; then
@@ -75,6 +75,9 @@ for (( i=0; $i<($contentCount); i++)); do
 	# Extension to directory
 	if [ "$timeStmpType" = "month" ]; then
 		ext=$(ls -l $source${array[$i]} | awk '{print $6}');
+		ext="$ext/";
+	else
+		ext=$(date +%V);
 		ext="$ext/";
 	fi;
 	hashDestination=$(md5sum $destination$ext${array[$i]} | cut -d\  -f1);
