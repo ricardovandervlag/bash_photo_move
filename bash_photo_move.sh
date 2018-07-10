@@ -62,7 +62,7 @@ fi
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
 	ext;
-	cp $source${array[$i]} $destination$ext$;
+	cp $source${array[$i]} $destination$ext${array[$i]};
 done
 
 # Check hash md5
