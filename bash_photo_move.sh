@@ -62,6 +62,7 @@ fi
 # Copy files
 for (( i=0; $i<($contentCount); i++)); do
 	ext;
+	echo $source${array[$i]} $destination$ext${array[$i]};
 	cp $source${array[$i]} $destination$ext${array[$i]};
 done
 
