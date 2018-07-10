@@ -56,7 +56,7 @@ done < <(ls "$source")
 ext=""
 if [ "$timeStmpType" = "month" ]; then
 	ext=$(ls -l $source${array[$i]} | awk '{print $6}');
-	echo $ext;
+	$ext+="/";
 fi
 
 # Copy files
