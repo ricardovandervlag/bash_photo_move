@@ -53,6 +53,7 @@ while read line; do
 done < <(ls "$source")
 
 # Copy files
+echo $contentCount
 for (( i=0; $i<($contentCount - 1); i++)); do
 	cp $source${array[$i]} $destination${array[$i]};
 done
