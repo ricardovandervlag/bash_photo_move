@@ -56,6 +56,7 @@ done < <(ls "$source")
 function ext {
 if [ "$timeStmpType" = "month" ]; then
 	ext=$(ls -l $source${array[$i]} | awk '{print $6}');
+	echo $ext;
 else
 	ext="";
 fi}
